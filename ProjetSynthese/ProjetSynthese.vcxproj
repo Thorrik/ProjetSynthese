@@ -146,18 +146,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="FormeGeometrique.cpp" />
-    <ClCompile Include="FormeGeometriqueComposee.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vec2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Couleur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="FormeGeometrique.h" />
-    <ClInclude Include="FormeGeometriqueComposee.h" />
+    <ClInclude Include="Polygone.h" />
     <ClInclude Include="Segment.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vec2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

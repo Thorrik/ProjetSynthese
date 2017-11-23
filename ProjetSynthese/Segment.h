@@ -1,6 +1,5 @@
 #pragma once
 #include "FormeGeometrique.h"
-#include "Vec2D.h"
 
 class Segment : public FormeGeometrique
 {
@@ -8,11 +7,11 @@ private:
 	Vecteur2D _point1;
 	Vecteur2D _point2;
 public:
-	Segment(int, const Vecteur2D &, const Vecteur2D &);
-	Segment(int, double, double, double, double);
+	Segment(const Couleur &, const Vecteur2D &, const Vecteur2D &);
+	Segment(const Couleur &, const double &, const double &, const double &, const double &);
 
-	inline void setPoint1(Vecteur2D &);
-	inline void setPoint2(Vecteur2D &);
+	inline void setPoint1(const Vecteur2D &);
+	inline void setPoint2(const Vecteur2D &);
 
 	inline const Vecteur2D getPoint1() const;
 	inline const Vecteur2D getPoint2() const;
@@ -25,12 +24,12 @@ public:
 };
 
 
-inline void Segment::setPoint1(Vecteur2D &p)
+inline void Segment::setPoint1(const Vecteur2D &p)
 {
 	_point1 = p;
 }
 
-inline void Segment::setPoint2(Vecteur2D &p)
+inline void Segment::setPoint2(const Vecteur2D &p)
 {
 	_point2 = p;
 }

@@ -11,7 +11,6 @@ class Vecteur2D
 public:
 	double x, y;
 	
-
 	inline explicit Vecteur2D(const double & x = 0, const double & y = 0);
 
 	/**

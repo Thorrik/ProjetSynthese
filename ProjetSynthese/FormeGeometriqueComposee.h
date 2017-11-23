@@ -4,12 +4,12 @@
 
 using namespace std;
 
-class FormeGeometriqueComposee:FormeGeometrique
+class FormeGeometriqueComposee:public FormeGeometrique
 {
 private:
-	list<FormeGeometrique> groupe;
+	list<FormeGeometrique *> _groupes;
 public:
-	FormeGeometriqueComposee(int);
+	FormeGeometriqueComposee(int, const FormeGeometrique *);
 	~FormeGeometriqueComposee();
 };
 

@@ -2,7 +2,7 @@
 
 
 
-FormeGeometriqueComposee::FormeGeometriqueComposee(int couleur):FormeGeometrique(couleur)
+FormeGeometriqueComposee::FormeGeometriqueComposee(int couleur, FormeGeometrique * groupes):FormeGeometrique(couleur)
 {
 }
 
