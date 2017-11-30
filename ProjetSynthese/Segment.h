@@ -2,46 +2,35 @@
 #include "FormeGeometrique.h"
 
 class Segment : public FormeGeometrique
-{
-private:
+{	
+public:
 	Vecteur2D _point1;
 	Vecteur2D _point2;
-public:
-	Segment(const Couleur &, const Vecteur2D &, const Vecteur2D &);
-	Segment(const Couleur &, const double &, const double &, const double &, const double &);
 
-	inline void setPoint1(const Vecteur2D &);
-	inline void setPoint2(const Vecteur2D &);
-
-	inline const Vecteur2D getPoint1() const;
-	inline const Vecteur2D getPoint2() const;
-
+	inline explicit Segment(const Couleur &, const Vecteur2D &, const Vecteur2D &);
+	inline explicit Segment(const Couleur &, const double  &, const double &, const double &, const double &);
+	
 	inline double calculAire() const;
 
 	//const Segment clone(const Segment &)const;
 	inline operator string()const;
-	friend ostream & operator << (ostream &, const Segment &);
-};
 
+};// classe Segment
 
-inline void Segment::setPoint1(const Vecteur2D &p)
+//------------ implémentation des fonctions inline ----------------------
+
+inline Segment::
+Segment(const Couleur & couleur, const Vecteur2D & point1, const Vecteur2D & point2) 
+	:FormeGeometrique(couleur), _point1(point1), _point2(point2){}
+
+inline Segment::
+Segment(const Couleur & couleur, const double & x1, const double & y1, const double & x2, const double & y2) :FormeGeometrique(couleur)
+//Les deux premiers reels seront allouer pour le premier point et les deux autres pour le second point.
 {
-	_point1 = p;
-}
-
-inline void Segment::setPoint2(const Vecteur2D &p)
-{
-	_point2 = p;
-}
-
-inline const Vecteur2D Segment::getPoint1() const
-{
-	return _point1;
-}
-
-inline const Vecteur2D Segment::getPoint2() const
-{
-	return _point2;
+	_point1.x = x1;
+	_point1.y = y1;
+	_point2.x = x2;
+	_point2.y = y2;
 }
 
 inline double Segment::calculAire() const
@@ -55,4 +44,10 @@ inline Segment::operator string()const
 	os << this->FormeGeometrique::operator std::string();
 	os << "Point 1: " << _point1 << " ; " << "Point2: " << _point2;
 	return os.str();
+}
+
+inline ostream & operator << (ostream & os, const Segment & s)
+{
+	os << (string)s;
+	return os;
 }

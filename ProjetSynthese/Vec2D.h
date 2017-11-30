@@ -21,13 +21,11 @@ public:
 	inline const Vecteur2D operator + (const Vecteur2D & u) const;
 	inline const Vecteur2D operator * (const double & a) const;
 	/**
-	* - unaire (c'est-à- dire opposé d'un vecteur)z
+	* - unaire (c'est-à- dire opposé d'un vecteur)
 	* */
 	inline const Vecteur2D operator - () const;
 
-	inline  operator string() const;
-	friend ostream & operator << (ostream &, const Vecteur2D &);
-
+	inline operator string() const;
 }; // classe Vecteur2D
 
 inline const Vecteur2D operator *(const double & a, const Vecteur2D & u) { return u*a; }
@@ -37,8 +35,7 @@ inline const Vecteur2D operator *(const double & a, const Vecteur2D & u) { retur
 inline  Vecteur2D::
 Vecteur2D(const double & x, const double & y) : x(x), y(y) {}
 
-Vecteur2D::Vecteur2D(const char * s)
-{}
+inline Vecteur2D::Vecteur2D(const char * s){}
 
 inline const Vecteur2D Vecteur2D::operator + (const Vecteur2D & u) const
 {
@@ -62,6 +59,8 @@ inline Vecteur2D::operator string() const
 	return os.str();
 }
 
-
-
-
+inline ostream & operator << (ostream & os, const Vecteur2D & v)
+{
+	os << (string)v;
+	return os;
+}

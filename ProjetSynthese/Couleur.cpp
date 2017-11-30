@@ -6,11 +6,3 @@ const int Couleur::red = 3;
 const int Couleur::green = 4;
 const int Couleur::yellow = 5;
 const int Couleur::cyan = 6;
-
-
-
-ostream & operator << (ostream & os, const Couleur & c)
-{
-	os << (string)c;
-	return os;
-}

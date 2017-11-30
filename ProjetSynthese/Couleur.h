@@ -9,7 +9,6 @@ using namespace std;
 class Couleur
 {
 private:
-	
 	static const int black;
 	static const int blue;
 	static const int red;
@@ -20,30 +19,32 @@ public:
 	int _couleur;
 
 	inline Couleur(const int & couleur = 1) :_couleur(couleur) {}
-	
-	inline int getCouleur() const;
-	inline void setCouleur(const int & couleur);
 
 	inline  operator string() const;
-	friend ostream & operator << (ostream &, const Couleur &);
-};
+};// classe Couleur
 
-inline int Couleur::getCouleur() const
-{
-	return _couleur;
-}
+//---------Initialisation des membres static de Couleur-----------------
+const int Couleur::black = 1;
+const int Couleur::blue = 2;
+const int Couleur::red = 3;
+const int Couleur::green = 4;
+const int Couleur::yellow = 5;
+const int Couleur::cyan = 6;
 
 
-inline void Couleur::setCouleur(const int & couleur)
-{
-	_couleur = couleur;
-}
+//------------ implémentation des fonctions inline ----------------------
 
 inline Couleur::operator string() const
 {
 	ostringstream os;
 	os <<"Couleur: " << _couleur;
 	return os.str();
+}
+
+inline ostream & operator << (ostream & os, const Couleur & c)
+{
+	os << (string)c;
+	return os;
 }
 
 

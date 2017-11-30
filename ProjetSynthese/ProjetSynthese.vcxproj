@@ -148,14 +148,10 @@
   <ItemGroup>
     <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="Erreur.cpp" />
-    <ClCompile Include="FormeGeometrique.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Polygone.cpp" />
-    <ClCompile Include="Segment.cpp" />
-    <ClCompile Include="Triangle.cpp" />
-    <ClCompile Include="Vec2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cercle.h" />
     <ClInclude Include="Couleur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="FormeGeometrique.h" />
