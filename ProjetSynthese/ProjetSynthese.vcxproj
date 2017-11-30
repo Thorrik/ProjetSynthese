@@ -146,7 +146,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -155,6 +154,7 @@
     <ClInclude Include="Couleur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="FormeGeometrique.h" />
+    <ClInclude Include="FormeGeometriqueComposee.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Triangle.h" />

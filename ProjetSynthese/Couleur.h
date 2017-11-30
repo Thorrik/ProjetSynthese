@@ -8,14 +8,14 @@ using namespace std;
 
 class Couleur
 {
-private:
+public:
 	static const int black;
 	static const int blue;
 	static const int red;
 	static const int green;
 	static const int yellow;
 	static const int cyan;
-public:
+
 	int _couleur;
 
 	inline Couleur(const int & couleur = 1) :_couleur(couleur) {}

@@ -2,12 +2,6 @@
 #include "Erreur.h"
 #include "Couleur.h"
 #include "Vec2D.h"
-#include <string>
-#include <sstream>
-#include <ostream>
-#include <iostream>
-
-using namespace std;
 
 class FormeGeometrique
 {

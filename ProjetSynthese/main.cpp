@@ -4,26 +4,27 @@
 #include "Triangle.h"
 #include "Cercle.h"
 
-using namespace std;
-
 int main()
 {
 	try {
-		Vecteur2D V(2.0, 3.0);
-		Vecteur2D V1(5.0, 1.0);
-		Vecteur2D V2(10.0, 5.0);
-		Vecteur2D V3(25.0, 12.0);
+		cout << "essai des vecteurs 2D \n";
+
+		Vecteur2D u1(2, 3), u2(2, 3), v(5), w, v1(35, -63), u3(3, 4), u4(3, -4), v3;
+
+		cout << " u1 = " << u1 << endl;
+		cout << " u2 = " << u2 << endl;
+		cout << " u1 - u2 = " << u1 - u2 << endl;
+		cout << " 5*u1 = " << 5 * u1 << endl;
+
 		
-		Segment s1(2, V, V1);
+		Segment s1(2, u1, u2);
 
-		Polygone P(3, { V, V1, V2, V3 });
+		Polygone P(3, { u3, u4, w, v1 });
 
-		Triangle T(2, { V, V2, V3 });
+		Triangle T(2, { v, v3, u1 });
 
-		Cercle C(1, V3, 2.5);
+		Cercle C(1, v1, 2.5);
 
-		cout << "V" << V;
-		cout << "V1" << V1 << endl;
 		cout << "Segment s1: " << s1 << endl;
 		cout << "Polygone P: " << P << endl;
 		cout << "Triangle T: " << T << endl;

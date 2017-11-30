@@ -1,6 +1,8 @@
 #pragma once
 #include "FormeGeometrique.h"
 
+#define PI 3.14159265358979323846;
+
 class Cercle : public FormeGeometrique
 {
 private:
@@ -8,11 +10,12 @@ private:
 public:
 	Vecteur2D _centre;
 
-	inline explicit Cercle(const Couleur &, const Vecteur2D &, const double &);
-
+	inline Cercle(const Couleur & couleur, const Vecteur2D & centre, const double & rayon);
+	
+	inline const double calculAire() const;
 	inline operator string()const;
 
-	friend ostream & operator << (ostream &, const Cercle &);
+
 };// classe Cercle
 
 //------------ implémentation des fonctions inline ----------------------
@@ -22,7 +25,12 @@ Cercle(const Couleur & couleur, const Vecteur2D & centre, const double & rayon)
 	:FormeGeometrique(couleur), _centre(centre), _rayon(rayon)
 {
 	if (rayon < 0)
-		throw Erreur("Rayon negatif");
+		throw Erreur("Le rayon ne peut etre negatif");
+}
+
+inline const double Cercle::calculAire() const
+{
+	return _rayon * _rayon * PI;
 }
 
 inline Cercle::operator string()const

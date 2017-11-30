@@ -9,7 +9,6 @@ class FormeGeometriqueComposee:public FormeGeometrique
 private:
 	list<FormeGeometrique *> _groupes;
 public:
-	FormeGeometriqueComposee(int, const FormeGeometrique *);
-	~FormeGeometriqueComposee();
+	inline FormeGeometriqueComposee(int, const FormeGeometrique *);
 };
 

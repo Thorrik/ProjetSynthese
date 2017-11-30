@@ -4,11 +4,10 @@
 class Triangle : public Polygone
 {
 public:
-	inline explicit Triangle(const Couleur &, const list<Vecteur2D> &);
+	inline Triangle(const Couleur & couleur, const list<Vecteur2D> & points);
 
+	inline const double calculAire(const list<Vecteur2D> & _points) const;
 	inline operator string()const;
-
-	friend ostream & operator << (ostream &, const Triangle &);
 };// classe Triangle
 
 //------------ implémentation des fonctions inline ----------------------
@@ -18,6 +17,35 @@ Triangle(const Couleur & couleur, const list<Vecteur2D> & points) :Polygone(coul
 {
 	if (points.size() != 3)
 		throw Erreur("Nombre de points pour le triangle != 3");
+}
+
+inline const double Triangle::calculAire(const list<Vecteur2D> & points) const
+{
+	list<Vecteur2D> interPoints;
+	Vecteur2D A;
+	Vecteur2D B;
+	Vecteur2D C;
+	Vecteur2D u;
+	Vecteur2D v;
+	double res;
+	
+	int i = 1;
+
+	list<Vecteur2D>::const_iterator it;
+	for (it = points.begin(); it != points.end(); ++it)
+	{
+		if (i == 1)
+			A = (*it);
+		else if (i == 2)
+			B = (*it);
+		else if (i == 3)
+			C = (*it);
+		else
+			throw Erreur("Il ne peut y avoir plus de trois points dans un triangle");
+	}
+	u = Vecteur2D::coordonneeSegment(A, B);
+	v = Vecteur2D::coordonneeSegment(A, C);
+	return res;
 }
 
 inline Triangle::operator string()const

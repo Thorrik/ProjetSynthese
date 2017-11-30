@@ -7,10 +7,10 @@ public:
 	Vecteur2D _point1;
 	Vecteur2D _point2;
 
-	inline explicit Segment(const Couleur &, const Vecteur2D &, const Vecteur2D &);
-	inline explicit Segment(const Couleur &, const double  &, const double &, const double &, const double &);
+	inline Segment(const Couleur & couleur, const Vecteur2D & point1, const Vecteur2D & point2);
+	inline explicit Segment(const Couleur & couleur, const double  & x1 = 0, const double & y1 = 0, const double & x2 = 0, const double & y2 = 0);
 	
-	inline double calculAire() const;
+	inline const double calculAire() const;
 
 	//const Segment clone(const Segment &)const;
 	inline operator string()const;
@@ -33,7 +33,7 @@ Segment(const Couleur & couleur, const double & x1, const double & y1, const dou
 	_point2.y = y2;
 }
 
-inline double Segment::calculAire() const
+inline const double Segment::calculAire() const
 {
 	return 0.;
 }

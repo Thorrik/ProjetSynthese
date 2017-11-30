@@ -7,11 +7,11 @@ class Polygone : public FormeGeometrique
 protected:
 	list<Vecteur2D> _points;
 public:
-	inline explicit Polygone(const Couleur &,const list<Vecteur2D> &);
+	inline Polygone(const Couleur & couleur,const list<Vecteur2D> & points);
 
 	inline operator string()const;
 
-	//inline double calculAire() const;
+	//inline const double calculAire() const;
 };// classe Polygone
 
 //------------ implémentation des fonctions inline ----------------------
