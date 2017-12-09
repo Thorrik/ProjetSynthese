@@ -15,20 +15,19 @@ int main()
 		cout << " u2 = " << u2 << endl;
 		cout << " u1 - u2 = " << u1 - u2 << endl;
 		cout << " 5*u1 = " << 5 * u1 << endl;
-
 		
-		Segment s1(2, u1, u2);
+		Segment S(2, u1, u2);
 
-		Polygone P(3, { u3, u4, w, v1 });
+		//Polygone P(3, { u3, u4, w, v1 });
 
 		Triangle T(2, { v, v3, u1 });
 
 		Cercle C(1, v1, 2.5);
 
-		cout << "Segment s1: " << s1 << endl;
-		cout << "Polygone P: " << P << endl;
-		cout << "Triangle T: " << T << endl;
-		cout << "Cercle C: " << C << endl;
+		cout << "Segment S: " << S << " Aire: " << S.calculAire() << endl;
+		//cout << "Polygone P: " << P << " Aire: " << S.calculAire() << endl;
+		cout << "Triangle T: " << T << " Aire: " << T.calculAire() << endl;
+		cout << "Cercle C: " << C << " Aire: " << C.calculAire() << endl;
 	}
 	catch (Erreur erreur)
 	{

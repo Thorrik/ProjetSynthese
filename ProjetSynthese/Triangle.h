@@ -1,12 +1,13 @@
 #pragma once
 #include "Polygone.h"
+#include <stdlib.h>
 
 class Triangle : public Polygone
 {
 public:
 	inline Triangle(const Couleur & couleur, const list<Vecteur2D> & points);
 
-	inline const double calculAire(const list<Vecteur2D> & _points) const;
+	inline const double calculAire() const;
 	inline operator string()const;
 };// classe Triangle
 
@@ -16,36 +17,28 @@ inline Triangle::
 Triangle(const Couleur & couleur, const list<Vecteur2D> & points) :Polygone(couleur, points)
 {
 	if (points.size() != 3)
-		throw Erreur("Nombre de points pour le triangle != 3");
+		throw Erreur("Pas un Triangle, le nombre de points est different 3");
 }
 
-inline const double Triangle::calculAire(const list<Vecteur2D> & points) const
+inline const double Triangle::calculAire() const
 {
-	list<Vecteur2D> interPoints;
-	Vecteur2D A;
-	Vecteur2D B;
-	Vecteur2D C;
-	Vecteur2D u;
-	Vecteur2D v;
-	double res;
-	
-	int i = 1;
-
+	Vecteur2D A, B, C, AB, AC;
 	list<Vecteur2D>::const_iterator it;
-	for (it = points.begin(); it != points.end(); ++it)
+	int i = 1;
+	
+	for (it = _points.begin(); it != _points.end(); ++it)
 	{
 		if (i == 1)
 			A = (*it);
 		else if (i == 2)
 			B = (*it);
-		else if (i == 3)
-			C = (*it);
 		else
-			throw Erreur("Il ne peut y avoir plus de trois points dans un triangle");
+			C = (*it);
+		i++;
 	}
-	u = Vecteur2D::coordonneeSegment(A, B);
-	v = Vecteur2D::coordonneeSegment(A, C);
-	return res;
+	AB = B - C;
+	AC = C - A;
+	return( 0.5 * abs(determinant(AB, AC)));
 }
 
 inline Triangle::operator string()const

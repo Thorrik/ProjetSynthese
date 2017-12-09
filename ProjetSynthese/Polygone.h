@@ -2,12 +2,14 @@
 #include "FormeGeometrique.h"
 #include <list>
 
+class Triangle;
+
 class Polygone : public FormeGeometrique
 {
 protected:
 	list<Vecteur2D> _points;
 public:
-	inline Polygone(const Couleur & couleur,const list<Vecteur2D> & points);
+	inline Polygone(const Couleur & couleur, const list<Vecteur2D> & points);
 
 	inline operator string()const;
 
@@ -25,6 +27,34 @@ Polygone(const Couleur & couleur, const list<Vecteur2D> & points) :FormeGeometri
 	for (it = points.begin(); it != points.end(); ++it)
 		_points.push_back(*it);
 }
+
+/*
+inline const double Polygone::calculAire() const
+{
+	list<Vecteur2D> pointsTriangleTemp;
+	list<Vecteur2D>::const_iterator it;
+	double aire;
+	int i = 0;
+
+	for (it = _points.begin(); it != _points.end(); ++it)
+	{	
+
+		//Parcours classique des Triangles du polygone
+		if (i < 3)
+		{
+			pointsTriangleTemp.push_back(*it);
+			i++;
+		}
+		else if (i == 3)
+		{
+			pointsTriangleTemp.push_front(_points.front());
+			Triangle triangleTemp(1, pointsTriangleTemp);
+			aire += triangleTemp.calculAire();
+
+			i = 1;
+		}
+	}
+}*/
 
 inline Polygone::operator string()const
 {

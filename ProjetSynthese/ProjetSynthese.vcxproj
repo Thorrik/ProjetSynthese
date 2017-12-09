@@ -146,11 +146,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ClientDessin.cpp" />
+    <ClCompile Include="MaClasseWinsock.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
+    <ClInclude Include="ClientDessin.h" />
+    <ClInclude Include="MaClasseWinsock.h" />
     <ClInclude Include="Couleur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="FormeGeometrique.h" />

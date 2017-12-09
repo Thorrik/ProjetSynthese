@@ -11,12 +11,8 @@ public:
 	inline FormeGeometrique(const Couleur & couleur);
 
 	inline  operator string() const;
-	//virtual FormeGeometrique * homothetie(const Vecteur2D & invariant, const double & rapport)const = 0;
-	
-	/** 
-	angle orienté est exprimé en radians
-	*/
-	//virtual FormeGeometrique * rotation(const Vecteur2D & invariant, const double & angle)const = 0;
+
+	virtual const double calculAire()const = 0;
 };// classe FormeGeometrique
 
 inline FormeGeometrique::FormeGeometrique(const Couleur & couleur) : _couleur(couleur) {}
