@@ -9,6 +9,8 @@ protected:
 public:
 	inline Polygone(const Couleur & couleur, const list<Vecteur2D> & points);
 
+	inline const list<Vecteur2D> getPoints()const;
+
 	inline operator string()const;
 
 	inline const double calculAire() const;
@@ -24,6 +26,11 @@ Polygone(const Couleur & couleur, const list<Vecteur2D> & points) :FormeGeometri
 	list<Vecteur2D>::const_iterator it;
 	for (it = points.begin(); it != points.end(); ++it)
 		_points.push_back(*it);
+}
+
+inline const list<Vecteur2D> Polygone::getPoints()const
+{
+	return _points;
 }
 
 inline const double Polygone::calculAire() const

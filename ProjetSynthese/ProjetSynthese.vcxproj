@@ -147,10 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClientDessin.cpp" />
+    <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="MaClasseWinsock.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SauvegarderFichier.cpp" />
+    <ClCompile Include="SauvegarderFichierFormeGeometrique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="FormeGeometriqueComposee.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="SauvegarderFichier.h" />
+    <ClInclude Include="SauvegarderFichierFormeGeometrique.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vec2D.h" />

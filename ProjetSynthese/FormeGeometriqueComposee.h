@@ -11,6 +11,8 @@ private:
 public:
 	inline FormeGeometriqueComposee(int couleur, const list<FormeGeometrique *> groupes);
 
+	inline const list<FormeGeometrique *> getGroupes()const;
+
 	inline  operator string() const;
 
 	inline const double calculAire() const;
@@ -19,8 +21,16 @@ public:
 inline FormeGeometriqueComposee::FormeGeometriqueComposee(int couleur, const list<FormeGeometrique *> groupes): FormeGeometrique(couleur)
 {
 	list<FormeGeometrique *>::const_iterator it;
-	for (it = _groupes.begin(); it != _groupes.end(); ++it)
-		_groupes.push_back(*it);
+	if (groupes.size() < 1)
+		throw Erreur("Le groupe ne peut avoir moins de 1 forme geometrique");
+	else
+		for (it = groupes.begin(); it != groupes.end(); ++it)
+			_groupes.push_back(*it);
+}
+
+inline const list<FormeGeometrique *> FormeGeometriqueComposee::getGroupes()const
+{
+	return _groupes;
 }
 
 /**
@@ -29,7 +39,7 @@ inline FormeGeometriqueComposee::FormeGeometriqueComposee(int couleur, const lis
 inline const double FormeGeometriqueComposee::calculAire() const
 {
 	list<FormeGeometrique *>::const_iterator it;
-	double aire;
+	double aire = 0;
 
 	for (it = _groupes.begin(); it != _groupes.end(); ++it)
 		aire += (*it)->calculAire();
@@ -43,8 +53,11 @@ inline FormeGeometriqueComposee::operator string()const
 
 	list<FormeGeometrique *>::const_iterator it;
 
+	os <<  "{ " << endl;
 	for (it = _groupes.begin(); it != _groupes.end(); ++it)
-		(*it)->operator std::string();
+		os << (*it);
+	os << endl << "} " << endl;
+	
 	return os.str();
 }
 
