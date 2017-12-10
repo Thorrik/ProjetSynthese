@@ -2,8 +2,6 @@
 #include "FormeGeometrique.h"
 #include <list>
 
-class Triangle;
-
 class Polygone : public FormeGeometrique
 {
 protected:
@@ -13,7 +11,7 @@ public:
 
 	inline operator string()const;
 
-	//inline const double calculAire() const;
+	inline const double calculAire() const;
 };// classe Polygone
 
 //------------ implémentation des fonctions inline ----------------------
@@ -28,33 +26,29 @@ Polygone(const Couleur & couleur, const list<Vecteur2D> & points) :FormeGeometri
 		_points.push_back(*it);
 }
 
-/*
 inline const double Polygone::calculAire() const
 {
-	list<Vecteur2D> pointsTriangleTemp;
+	Vecteur2D A, B, C, AB, AC;
 	list<Vecteur2D>::const_iterator it;
-	double aire;
-	int i = 0;
+	Vecteur2D dernierPointsDeReference;
+	double aire = 0;
 
+	/**
+	* Décomposition du Polygone en Triangle et
+	* calcul l'aire de chaqun des triangles qui le composent
+	**/
 	for (it = _points.begin(); it != _points.end(); ++it)
-	{	
-
-		//Parcours classique des Triangles du polygone
-		if (i < 3)
-		{
-			pointsTriangleTemp.push_back(*it);
-			i++;
-		}
-		else if (i == 3)
-		{
-			pointsTriangleTemp.push_front(_points.front());
-			Triangle triangleTemp(1, pointsTriangleTemp);
-			aire += triangleTemp.calculAire();
-
-			i = 1;
-		}
+	{
+		A = _points.front();
+		B = dernierPointsDeReference;
+		C = *it;
+		AB = B - A;
+		AC = C - A;
+		aire += (0.5 * abs(determinant(AB, AC)));
+		dernierPointsDeReference = (*it);
 	}
-}*/
+	return aire;
+}
 
 inline Polygone::operator string()const
 {

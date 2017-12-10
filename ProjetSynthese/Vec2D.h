@@ -8,7 +8,6 @@ using namespace std;
 
 class Vecteur2D
 {
-	//potttentiellement privatiser le destructeur
 public:
 	double x, y;
 	
@@ -16,7 +15,6 @@ public:
 
 	/**
 	* DONNEES : s respectant le format "(  nombre réel, nombre réel)"
-	*
 	* */
 	inline Vecteur2D(const char * s);
 	inline const Vecteur2D operator + (const Vecteur2D & u) const;

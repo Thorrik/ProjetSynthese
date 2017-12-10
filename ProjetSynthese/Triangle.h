@@ -7,7 +7,6 @@ class Triangle : public Polygone
 public:
 	inline Triangle(const Couleur & couleur, const list<Vecteur2D> & points);
 
-	inline const double calculAire() const;
 	inline operator string()const;
 };// classe Triangle
 
@@ -18,27 +17,6 @@ Triangle(const Couleur & couleur, const list<Vecteur2D> & points) :Polygone(coul
 {
 	if (points.size() != 3)
 		throw Erreur("Pas un Triangle, le nombre de points est different 3");
-}
-
-inline const double Triangle::calculAire() const
-{
-	Vecteur2D A, B, C, AB, AC;
-	list<Vecteur2D>::const_iterator it;
-	int i = 1;
-	
-	for (it = _points.begin(); it != _points.end(); ++it)
-	{
-		if (i == 1)
-			A = (*it);
-		else if (i == 2)
-			B = (*it);
-		else
-			C = (*it);
-		i++;
-	}
-	AB = B - C;
-	AC = C - A;
-	return( 0.5 * abs(determinant(AB, AC)));
 }
 
 inline Triangle::operator string()const

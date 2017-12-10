@@ -20,7 +20,7 @@ inline FormeGeometrique::FormeGeometrique(const Couleur & couleur) : _couleur(co
 inline FormeGeometrique::operator string() const
 {
 	ostringstream os;
-	os << _couleur << endl;
+	os << "Couleur" << _couleur << endl;
 	return os.str();
 }
 

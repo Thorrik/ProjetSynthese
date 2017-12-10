@@ -7,15 +7,15 @@ using namespace std;
 
 class FormeGeometrique;
 /**
- * crée un client TCP/IP vers un serveur de dessin
+ * Crée un client TCP/IP vers un serveur de dessin
  *
- * envoie 3 requêtes possibles :
+ * Envoie 3 requêtes possibles :
+ *	execute la requete
+ *	sauvegarder sous forme de fichier des formes géometrique
+ *	charger a partir d'un fichier les formes géométrique
  *
- * sauvegarder sous forme de fichier des formes géometrique
- * charger a partir d'un fichier les formes géométrique
- *
- *	Protocole, le fichier contiendra:
- *	Pour le segment, on aura un S – Couleur – x1 , y1 – x2 , y2.
+ * Protocole, le fichier contiendra:
+ *	Pour le segment, on aura S – Couleur – x1 , y1 – x2 , y2.
  *	Pour le cercle, on aura C – Couleur – x , y – r.
  *	Pour le triangle, on aura T – Couleur – x1 , y1 – x2 , y2 – x3 , y3.
  *	Pour le polygone, on aura P -Couleur – x1 , y1 - … - xn , yn.

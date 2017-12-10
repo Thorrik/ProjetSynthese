@@ -150,6 +150,7 @@
     <ClCompile Include="MaClasseWinsock.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SauvegarderFichier.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="FormeGeometrique.h" />
     <ClInclude Include="FormeGeometriqueComposee.h" />
     <ClInclude Include="Polygone.h" />
+    <ClInclude Include="SauvegarderFichier.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vec2D.h" />

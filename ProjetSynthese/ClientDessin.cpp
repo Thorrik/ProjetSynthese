@@ -1,22 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <sstream>
 #include "Erreur.h"
 #include "MaClasseWinsock.h"
 #include "ClientDessin.h"
+#pragma comment(lib, "Ws2_32.lib")
 
 /**
- * crée un client TCP/IP vers un serveur de dessin
- *
- * envoie 3 requêtes possibles :
- *
- * ouvrir une fenêtre graphique
- * tracer un segment
- * tracer une ellipse pleine
- *
- * protocole : Chaque requête est codée sous forme d'une seule String se terminant par le caractère fin de ligne.
- * Sur la ligne, 2 paramètres consécutifs sont séparés par ", ".
- *
- * */
+* crée un client TCP/IP vers un serveur de dessin
+*
+* envoie 3 requêtes possibles :
+*	execute la requête
+*	sauvegarder sous forme de fichier des formes géometrique
+*	charger a partir d'un fichier les formes géométrique
+*
+* Protocole, le fichier contiendra:
+*	Pour le segment, on aura S – Couleur – x1 , y1 – x2 , y2.
+*	Pour le cercle, on aura C – Couleur – x , y – r.
+*	Pour le triangle, on aura T – Couleur – x1 , y1 – x2 , y2 – x3 , y3.
+*	Pour le polygone, on aura P -Couleur – x1 , y1 - … - xn , yn.
+*	Pour le groupe, on aura G – Couleur – {une forme géométrique simple ou groupe décrite de la manière ci-dessus}
+*
+* */
 
 ClientDessin::ClientDessin( const string & adresseServeurDessin, const int portServeurDessin)
 {
@@ -75,10 +80,6 @@ if (r) throw Erreur("La fermeture du socket a échoué");
 cout << "arrêt normal du client" << endl;
 }
 
-/**
-    envoie sur une seule ligne les 5 paramètres au serveur.
- * Les 5 paramètres drawLine, ... , y2 sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
- *  * */
 void ClientDessin::sauvegarderFichier(const FormeGeometrique & fg)
 {
 /*ostringstream oss;
@@ -98,10 +99,6 @@ if (r == SOCKET_ERROR)
 cout << "requête de tracé de segment envoyée" << endl;*/
 }
 
-/**
-envoie sur une seule ligne les 5 paramètres au serveur.
-* Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
-*  * */
 void ClientDessin::chargerFichier(const string & path)
 {/*
 ostringstream oss;

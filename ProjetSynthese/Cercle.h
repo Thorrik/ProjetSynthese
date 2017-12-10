@@ -12,10 +12,11 @@ public:
 
 	inline Cercle(const Couleur & couleur, const Vecteur2D & centre, const double & rayon);
 	
+	inline double getRayon() const;
+
 	inline const double calculAire() const;
+
 	inline operator string()const;
-
-
 };// classe Cercle
 
 //------------ implémentation des fonctions inline ----------------------
@@ -28,9 +29,14 @@ Cercle(const Couleur & couleur, const Vecteur2D & centre, const double & rayon)
 		throw Erreur("Le rayon ne peut etre negatif");
 }
 
+inline double Cercle::getRayon() const
+{
+	return _rayon;
+}
+
 inline const double Cercle::calculAire() const
 {
-	return _rayon * _rayon * PI;
+	return (_rayon * _rayon) * PI;
 }
 
 inline Cercle::operator string()const
